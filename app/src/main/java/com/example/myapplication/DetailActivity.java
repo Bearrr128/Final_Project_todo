@@ -14,7 +14,7 @@ public class DetailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.detail_xml);
     }
     Intent intent=getIntent();
     note_id = intent.getIntExtra("note_id",0);
@@ -27,7 +27,7 @@ public class DetailActivity extends AppCompatActivity {
             get_title=title.getText().toString().trim();
             get_context=context.getText().toString().trim();
         if(TextUtils.isEmpty(get_title)||TextUtils.isEmpty(get_context)){
-            Toast.makeText(this,"修改内容不能为空",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"修改内容不能為空",Toast.LENGTH_SHORT).show();
         }else{
             ContactsContract.CommonDataKinds.Note note=new ContactsContract.CommonDataKinds.Note();
             note.note_id=note_id;
