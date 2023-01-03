@@ -1,5 +1,7 @@
 package com.example.myapplication;
 
+import android.widget.TextView;
+
 public class Note {
 
     public static final String TABLE = "todo";

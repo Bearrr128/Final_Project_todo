@@ -20,10 +20,10 @@
             android:textSize="20dp"
             android:background="@null"
             android:layout_weight="1"
-            android:textColor="@color/white">
-           </Button>
+            android:textColor="@color/white"/>
 
         <TextView
+            android:id="@+id/context"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="添加事項"
@@ -71,4 +71,4 @@
         android:gravity="top|left">
     </EditText>
 
-    </LinearLayout>
+</LinearLayout>

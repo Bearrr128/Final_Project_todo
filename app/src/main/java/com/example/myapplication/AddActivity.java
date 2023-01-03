@@ -1,25 +1,47 @@
 package com.example.myapplication;
 
+
 import android.content.Intent;
+import android.os.Bundle;
+
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.text.BreakIterator;
+public class AddActivity extends   AppCompatActivity implements View.OnClickListener {
+    private Button back;  //返回按钮
+    private EditText title;   //标题
+    private EditText context;   //内容
+    private Button finish;  //完成按钮
+    private String get_title;
+    private String get_context;
+//    private int note_id=0;
 
-public class AddActivity extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.add);
 
-    private String get_title,get_context;
+        back = (Button) findViewById(R.id.back_add);
+        title = (EditText) findViewById(R.id.title_add);
+        context = (EditText) findViewById(R.id.context_add);
+        finish = (Button) findViewById(R.id.finish);
 
+        finish.setOnClickListener(this);
+        back.setOnClickListener(this);
+
+    }
+
+    @Override
     public void onClick(View view) {
 
         if (view == findViewById(R.id.finish)) {
             NoteOperator noteOperator = new NoteOperator(AddActivity.this);
-            BreakIterator title = null;
             get_title = title.getText().toString().trim();
-            BreakIterator context = null;
             get_context = context.getText().toString().trim();
 
             if (TextUtils.isEmpty(get_title) || TextUtils.isEmpty(get_context)) {
@@ -29,8 +51,9 @@ public class AddActivity extends AppCompatActivity {
                 note.title = get_title;
                 note.context = get_context;
                 boolean add = noteOperator.insert(note);
-
+                //如果添加数据成功，跳到待办事项界面，并通过传值，让目标界面进行刷新
                 if (add) {
+                    //Toast.makeText(AddActivity.this,"添加成功",Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent();
                     intent.setClass(AddActivity.this, MainActivity.class);
                     intent.putExtra("Insert", 1);
@@ -46,3 +69,4 @@ public class AddActivity extends AppCompatActivity {
 
     }
 }
+
