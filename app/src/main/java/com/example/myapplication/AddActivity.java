@@ -7,8 +7,6 @@ import android.widget.Toast;
 
 public class AddActivity {
 
-
-
     public void onClick(View view) {
 
         if (view == findViewById(R.id.finish)) {
@@ -23,9 +21,8 @@ public class AddActivity {
                 note.title = get_title;
                 note.context = get_context;
                 boolean add = noteOperator.insert(note);
-                //如果添加数据成功，跳到待办事项界面，并通过传值，让目标界面进行刷新
+
                 if (add) {
-                    //Toast.makeText(AddActivity.this,"添加成功",Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent();
                     intent.setClass(AddActivity.this, MainActivity.class);
                     intent.putExtra("Insert", 1);
