@@ -3,12 +3,9 @@ package com.example.myapplication;
 import android.content.Intent;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.*;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import java.text.BreakIterator;
 
 public class AddActivity extends AppCompatActivity {
 
@@ -17,16 +14,14 @@ public class AddActivity extends AppCompatActivity {
     public void onClick(View view) {
 
         setContentView(R.layout.add);
-        setContentView(R.layout.activity_main);
 
-        TextView title=findViewById(R.id.title);
-        TextView context=findViewById(R.id.context);
+        EditText title_add  =findViewById(R.id.title_add);
+        EditText context_add=findViewById(R.id.context_add);
 
         if (view == findViewById(R.id.finish)) {
             NoteOperator noteOperator = new NoteOperator(AddActivity.this);
-
-            get_title = title.getText().toString().trim();
-            get_context = context.getText().toString().trim();
+            get_title = title_add.getText().toString().trim();
+            get_context = context_add.getText().toString().trim();
 
             if (TextUtils.isEmpty(get_title) || TextUtils.isEmpty(get_context)) {
                 Toast.makeText(AddActivity.this, "添加信息不能为空", Toast.LENGTH_SHORT).show();
@@ -49,6 +44,5 @@ public class AddActivity extends AppCompatActivity {
             Intent intent = new Intent(AddActivity.this, MainActivity.class);
             startActivity(intent);
         }
-
     }
 }

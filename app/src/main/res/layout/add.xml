@@ -30,8 +30,7 @@
             android:textSize="20dp"
             android:gravity="center"
             android:layout_weight="1"
-            android:textColor="@color/white">
-        </TextView>
+            android:textColor="@color/white"/>
 
         <Button
             android:id="@+id/finish"
@@ -41,8 +40,7 @@
             android:textSize="20dp"
             android:background="@null"
             android:layout_weight="1"
-            android:textColor="@color/white">
-        </Button>
+            android:textColor="@color/white"/>
 
     </LinearLayout>
 
@@ -55,9 +53,8 @@
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:hint="請輸入標題"
-        android:gravity="top|left"
-        >
-    </EditText>
+        android:gravity="top|left" />
+
 
     <EditText
         android:id="@+id/context_add"
@@ -67,8 +64,6 @@
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:hint="請輸入詳細內容"
-
-        android:gravity="top|left">
-    </EditText>
+        android:gravity="top|left"/>
 
 </LinearLayout>
