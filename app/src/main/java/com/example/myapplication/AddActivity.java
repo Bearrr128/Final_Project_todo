@@ -1,22 +1,33 @@
 package com.example.myapplication;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.*;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class AddActivity extends AppCompatActivity {
+public class AddActivity extends AppCompatActivity implements View.OnClickListener {
 
     private String get_title,get_context;
 
-    public void onClick(View view) {
+    private Button back_add =findViewById(R.id.back_add);
+    private Button finish   =findViewById(R.id.finish);
+    private EditText title_add  =findViewById(R.id.title_add);
+    private EditText context_add=findViewById(R.id.context_add);
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.add);
 
-        EditText title_add  =findViewById(R.id.title_add);
-        EditText context_add=findViewById(R.id.context_add);
+        back_add.setOnClickListener(this);
+        finish.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View view) {
 
         if (view == findViewById(R.id.finish)) {
             NoteOperator noteOperator = new NoteOperator(AddActivity.this);
