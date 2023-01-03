@@ -5,7 +5,11 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Toast;
 
-public class AddActivity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class AddActivity extends AppCompatActivity {
+
+    private String get_title,get_context;
 
     public void onClick(View view) {
 

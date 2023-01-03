@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-<<<<<<< HEAD
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
@@ -21,6 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
+        android:id="@+id/listview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/title">
@@ -28,7 +28,7 @@
     </ListView>
 
     <Button
-        android:id="@+id/add"
+        android:id="@+id/btn_add"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:text="+"
@@ -42,6 +42,3 @@
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-=======
-    android:layout_height="match_parent"/>
->>>>>>> 1d03de4cbbe9e89ec620d16c3bf4e8c7638442ce
