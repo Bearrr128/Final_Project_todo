@@ -3,9 +3,12 @@ package com.example.myapplication;
 import android.content.Intent;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.text.BreakIterator;
 
 public class AddActivity extends AppCompatActivity {
 
@@ -13,8 +16,15 @@ public class AddActivity extends AppCompatActivity {
 
     public void onClick(View view) {
 
+        setContentView(R.layout.add);
+        setContentView(R.layout.activity_main);
+
+        TextView title=findViewById(R.id.title);
+        TextView context=findViewById(R.id.context);
+
         if (view == findViewById(R.id.finish)) {
             NoteOperator noteOperator = new NoteOperator(AddActivity.this);
+
             get_title = title.getText().toString().trim();
             get_context = context.getText().toString().trim();
 
