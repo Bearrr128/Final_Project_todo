@@ -9,7 +9,7 @@ import android.text.TextUtils;
 import android.widget.Toast;
 
 
-public class DetailActivity extends AppCompatActivity {
+public class DetailActivity<note_id> extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +19,7 @@ public class DetailActivity extends AppCompatActivity {
     Intent intent=getIntent();
     note_id = intent.getIntExtra("note_id",0);
     NoteOperator noteOperator=new NoteOperator( this);
+    private Object note_id;
     ContactsContract.CommonDataKinds.Note note = noteOperator.getNoteById(note_id);
 
         title.setText(String.valueOf(note.title));
@@ -30,8 +31,8 @@ public class DetailActivity extends AppCompatActivity {
             Toast.makeText(this,"修改内容不能為空",Toast.LENGTH_SHORT).show();
         }else{
             ContactsContract.CommonDataKinds.Note note=new ContactsContract.CommonDataKinds.Note();
-            note.note_id=note_id;
-            note.title=get_title;
+            note.note_id = note_id;
+            note.title = get_title;
             note.context=get_context;
             NoteOperator noteOperator=new NoteOperator(DetailActivity.this);
             noteOperator.update(note);
