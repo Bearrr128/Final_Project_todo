@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         btn_add.setOnClickListener(this);
 
+
         final NoteOperator noteOperator =new NoteOperator(MainActivity.this);
         list = noteOperator.getNoteList();
         final ListAdapter listAdapter = new SimpleAdapter(MainActivity.this, list,
