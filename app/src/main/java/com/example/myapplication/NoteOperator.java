@@ -10,6 +10,7 @@ import java.util.HashMap;
 
 public class NoteOperator {
     private DBHelper dbHelper;
+    private int title_col,context_col,id_col;
 
     public NoteOperator(Context context) {
 
@@ -50,8 +51,11 @@ public class NoteOperator {
         Cursor cursor = db.rawQuery(sql, null);
         while (cursor.moveToNext()) {
             HashMap<String, String> note = new HashMap<String, String>();
-            note.put("id", cursor.getString(cursor.getColumnIndex(Note.KEY_id)));
-            note.put("title", cursor.getString(cursor.getColumnIndex(Note.KEY_title)));
+            title_col=cursor.getColumnIndex(Note.KEY_id);
+            id_col=cursor.getColumnIndex(Note.KEY_title);
+
+            note.put("id", cursor.getString(id_col));
+            note.put("title", cursor.getString(title_col));
             noteList.add(note);
         }
         cursor.close();
@@ -59,17 +63,25 @@ public class NoteOperator {
         return noteList;
     }
 
-
     public Note getNoteById(int id) {
+
+
 
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         String sql = "select " + Note.KEY_title + "," + Note.KEY_context +
                 " from " + Note.TABLE + " where " + Note.KEY_id + "=?";
         Note note = new Note();
         Cursor cursor = db.rawQuery(sql, new String[]{String.valueOf(id)});
+
+
+
         while (cursor.moveToNext()) {
-            note.title = cursor.getString(cursor.getColumnIndex(Note.KEY_title));
-            note.context = cursor.getString(cursor.getColumnIndex(Note.KEY_context));
+            title_col=cursor.getColumnIndex(Note.KEY_title);
+            context_col=cursor.getColumnIndex(Note.KEY_context);
+
+            note.title = cursor.getString(title_col);
+            note.context = cursor.getString(context_col);
+
         }
         cursor.close();
         db.close();

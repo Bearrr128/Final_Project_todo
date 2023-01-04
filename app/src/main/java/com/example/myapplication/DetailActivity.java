@@ -15,15 +15,17 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
     private String get_title;
     private String get_context;
 
-    EditText title_detail = findViewById(R.id.title_detail);
-    EditText context_detail = findViewById(R.id.context_detail);
-    Button back_detail = findViewById(R.id.back_detail);
-    Button save_detail = findViewById(R.id.save_detail);
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.detail_xml);
+
+        EditText title_detail = findViewById(R.id.title_detail);
+        EditText context_detail = findViewById(R.id.context_detail);
+        Button back_detail = findViewById(R.id.back_detail);
+        Button save_detail = findViewById(R.id.save_detail);
 
         back_detail.setOnClickListener(this);
         save_detail.setOnClickListener(this);
@@ -39,7 +41,12 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
 
     @Override
     public void onClick(View view) {
-        if (view == findViewById(R.id.save_detail)) {
+        setContentView(R.layout.detail_xml);
+
+        EditText title_detail = findViewById(R.id.title_detail);
+        EditText context_detail = findViewById(R.id.context_detail);
+
+        if (view == findViewById(R.id.back_detail)) {
             Intent intent = new Intent(DetailActivity.this, MainActivity.class);
             startActivity(intent);
 

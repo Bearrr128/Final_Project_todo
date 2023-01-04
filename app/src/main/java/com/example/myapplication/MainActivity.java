@@ -12,7 +12,7 @@ import android.widget.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity{
 
 
     ArrayList<HashMap<String,String>> list;
@@ -26,7 +26,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button btn_add  =findViewById(R.id.btn_add);
         ListView listView =findViewById(R.id.listview);
 
-        btn_add.setOnClickListener(this);
+        btn_add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this,AddActivity.class);
+                MainActivity.this.startActivity(intent);
+            }
+        });
 
         final NoteOperator noteOperator =new NoteOperator(MainActivity.this);
         list = noteOperator.getNoteList();
@@ -81,11 +88,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }else{
             Toast.makeText(this,"暫無待辦事項，請添加", Toast.LENGTH_SHORT).show();
         }
-    }
-    @Override
-    public void onClick(View view) {
-        Intent intent = new Intent();
-        intent.setClass(MainActivity.this,AddActivity.class);
-        MainActivity.this.startActivity(intent);
     }
 }
