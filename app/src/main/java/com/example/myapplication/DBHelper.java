@@ -11,6 +11,7 @@ public class DBHelper extends SQLiteOpenHelper {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
+
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         String sql="create table "+Note.TABLE+"("
@@ -19,6 +20,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 +Note.KEY_context+" text)";
         sqLiteDatabase.execSQL(sql);
     }
+
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
